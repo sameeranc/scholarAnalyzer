@@ -1,0 +1,31 @@
+Package: scholarAnalyzer
+Title: Google Scholar Citation Analyzer with Self-Citation Detection
+Version: 1.0.0
+Authors@R: 
+    person("Your", "Name", email = "your.email@example.com", role = c("aut", "cre"))
+Description: A Shiny application that fetches publication data from Google Scholar
+    and detects self-citations by cross-referencing with the Semantic Scholar API.
+    Citation counts use Google Scholar as the authoritative source. Self-citations
+    are identified when any co-author of the original paper also appears as an
+    author of a citing paper. Adjusted citation counts are computed by subtracting
+    detected self-citations from the Google Scholar total.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports:
+    shiny (>= 1.7.0),
+    shinydashboard (>= 0.7.0),
+    DT (>= 0.28),
+    scholar (>= 0.2.4),
+    httr (>= 1.4.0),
+    jsonlite (>= 1.8.0),
+    shinycssloaders (>= 1.0.0),
+    shinyWidgets (>= 0.7.0),
+    ggplot2 (>= 3.4.0)
+Suggests:
+    devtools,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+URL: https://github.com/YOUR_USERNAME/scholarAnalyzer
+BugReports: https://github.com/YOUR_USERNAME/scholarAnalyzer/issues
