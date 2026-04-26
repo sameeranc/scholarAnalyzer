@@ -8,6 +8,7 @@
 #' @importFrom shiny reactive reactiveValues observeEvent req renderText
 #'   renderUI renderPlot outputOptions showNotification updateTextInput
 #'   updateSelectInput downloadHandler div h4 h5 p strong
+#' @importFrom utils head tail setNames
 #' @importFrom DT renderDataTable datatable formatStyle styleInterval styleEqual
 #' @importFrom ggplot2 ggplot aes geom_col geom_point geom_smooth
 #'   scale_fill_manual scale_size_continuous labs theme theme_minimal
@@ -85,7 +86,7 @@ app_server <- function(input, output, session) {
 
       shiny::updateSelectInput(
         session, "selected_paper",
-        choices = stats::setNames(
+        choices = setNames(
           pubs$title,
           paste0(substr(pubs$title, 1, 80), " (", pubs$cites, " citations)")
         )
