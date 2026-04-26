@@ -8,7 +8,7 @@
 #' @importFrom shiny reactive reactiveValues observeEvent req renderText
 #'   renderUI renderPlot outputOptions showNotification updateTextInput
 #'   updateSelectInput downloadHandler div h4 h5 p strong
-#' @importFrom utils head tail setNames
+#' @importFrom utils head tail
 #' @importFrom DT renderDataTable datatable formatStyle styleInterval styleEqual
 #' @importFrom ggplot2 ggplot aes geom_col geom_point geom_smooth
 #'   scale_fill_manual scale_size_continuous labs theme theme_minimal
