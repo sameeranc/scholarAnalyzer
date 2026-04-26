@@ -275,12 +275,14 @@ app_server <- function(input, output, session) {
     })
 
     df <- do.call(rbind, rows)
-    DT::datatable(df,
-                  options  = list(pageLength = 10, scrollX = TRUE),
-                  rownames = FALSE) %>%
-      DT::formatStyle("Self_Rate",
-        backgroundColor = DT::styleInterval(c(10, 25),
-                            c("#d4edda", "#fff3cd", "#f8d7da")))
+    DT::formatStyle(
+      DT::datatable(df,
+                    options  = list(pageLength = 10, scrollX = TRUE),
+                    rownames = FALSE),
+      "Self_Rate",
+      backgroundColor = DT::styleInterval(c(10, 25),
+                          c("#d4edda", "#fff3cd", "#f8d7da"))
+    )
   })
 
   # ── Summary stats table ──────────────────────────────────────────────────
@@ -319,15 +321,19 @@ app_server <- function(input, output, session) {
       })
 
       df <- do.call(rbind, rows)
-      DT::datatable(df,
-                    options  = list(pageLength = 10, scrollX = TRUE),
-                    rownames = FALSE) %>%
-        DT::formatStyle("Self_Rate",
+      DT::formatStyle(
+        DT::formatStyle(
+          DT::datatable(df,
+                        options  = list(pageLength = 10, scrollX = TRUE),
+                        rownames = FALSE),
+          "Self_Rate",
           backgroundColor = DT::styleInterval(c(10, 25),
-                              c("#d4edda", "#fff3cd", "#f8d7da"))) %>%
-        DT::formatStyle("SS_Found",
-          backgroundColor = DT::styleEqual(c("Yes", "No"),
-                              c("#d4edda", "#fff3cd")))
+                              c("#d4edda", "#fff3cd", "#f8d7da"))
+        ),
+        "SS_Found",
+        backgroundColor = DT::styleEqual(c("Yes", "No"),
+                            c("#d4edda", "#fff3cd"))
+      )
     })
   })
 
